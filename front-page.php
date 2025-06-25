@@ -5,7 +5,7 @@
     <h1><?php the_field('hero_title'); ?></h1>
     <h2><?php the_field('hero_subtitle'); ?></h2>
   </section>
-  <section class="about">
+  <section id="about" class="about">
     <h3>About</h3>
     <p><?php the_field('about_text'); ?></p>
     <?php 
@@ -14,7 +14,7 @@
      <a href="<?php echo esc_url($cv); ?>" class="btn-download-cv" download>Download CV</a>
     <?php endif; ?>
   </section>
-  <section class="skills">
+  <section id="skills" class="skills">
     <h3>Skills</h3>
     <ul>
       <li><?php the_field('skill_1'); ?></li>
@@ -23,7 +23,7 @@
       <li><?php the_field('skill_4'); ?></li>
     </ul>
   </section>
-  <section class="portfolio">
+  <section id="projects" class="projects">
     <h3>Projects</h3>
     <?php
     $projects = new WP_Query([
@@ -48,7 +48,7 @@
     endif;
     ?>
   </section>
-  <section class="contact">
+  <section id="contact" class="contact">
     <h3>Contact</h3>
     <?php echo do_shortcode('[contact-form-7 id="123" title="Contact form 1"]'); ?>
   </section>
