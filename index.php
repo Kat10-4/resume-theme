@@ -1,8 +1,11 @@
-<?php get_header(); ?>
+<?php
+get_header();
+?>
 
 <main>
-  <h1>Привет! Я Веб-разработчик</h1>
-  <p>Добро пожаловать на мое онлайн-резюме, созданное на WordPress.</p>
+  <h2>Welcome to Resume Portfolio Theme</h2>
+  <p>This is the fallback index.php file.</p>
 </main>
 
-<?php get_footer(); ?>
+<?php
+get_footer();

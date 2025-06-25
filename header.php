@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?>>
 <head>
-  <meta charset="UTF-8">
-  <title>My CV</title>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
+<header>
+  <h1><?php bloginfo('name'); ?></h1>
+</header>
