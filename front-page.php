@@ -8,6 +8,11 @@
   <section class="about">
     <h3>About</h3>
     <p><?php the_field('about_text'); ?></p>
+    <?php 
+    $cv = get_field('cv_file'); 
+    if ($cv): ?>
+     <a href="<?php echo esc_url($cv); ?>" class="btn-download-cv" download>Download CV</a>
+    <?php endif; ?>
   </section>
   <section class="skills">
     <h3>Skills</h3>
@@ -44,8 +49,8 @@
     ?>
   </section>
   <section class="contact">
-  <h3>Contact</h3>
-    <p>Email: <?php the_field('contact_email'); ?></p>
+    <h3>Contact</h3>
+    <?php echo do_shortcode('[contact-form-7 id="123" title="Contact form 1"]'); ?>
   </section>
 </main>
 

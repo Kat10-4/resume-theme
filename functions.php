@@ -5,15 +5,17 @@ function resume_theme_assets() {
 add_action('wp_enqueue_scripts', 'resume_theme_assets');
 
 // ACF Support Example
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page(array(
-        'page_title'    => 'Theme Settings',
-        'menu_title'    => 'Theme Settings',
-        'menu_slug'     => 'theme-general-settings',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'Theme Settings',
+        'menu_title' => 'Theme Settings',
+        'menu_slug'  => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+    ]);
 }
+
+//Adding PROJECTS section
 function register_projects_post_type() {
     $labels = [
         'name' => 'Projects',
@@ -38,6 +40,7 @@ function register_projects_post_type() {
 
     register_post_type('project', $args);
 }
+//Disable single pages for projects
 add_action('init', 'register_projects_post_type');
 function disable_project_single_pages() {
     if ( is_singular('project') ) {
@@ -47,5 +50,10 @@ function disable_project_single_pages() {
 }
 add_action('template_redirect', 'disable_project_single_pages');
 
+//Adding MENU for header
+function resume_register_menus() {
+  register_nav_menu('main-menu', 'Main Menu');
+}
+add_action('after_setup_theme', 'resume_register_menus');
 ?>
 
