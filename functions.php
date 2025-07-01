@@ -1,19 +1,11 @@
 <?php
+add_filter('use_block_editor_for_post_type', '__return_false');
+
 function resume_theme_assets() {
     wp_enqueue_style('main-css', get_template_directory_uri() . '/assets/css/main.css');
 }
 add_action('wp_enqueue_scripts', 'resume_theme_assets');
 
-// ACF Support Example
-if (function_exists('acf_add_options_page')) {
-    acf_add_options_page([
-        'page_title' => 'Theme Settings',
-        'menu_title' => 'Theme Settings',
-        'menu_slug'  => 'theme-general-settings',
-        'capability' => 'edit_posts',
-        'redirect'   => false
-    ]);
-}
 
 //Adding PROJECTS section
 function register_projects_post_type() {
@@ -55,5 +47,12 @@ function resume_register_menus() {
   register_nav_menu('main-menu', 'Main Menu');
 }
 add_action('after_setup_theme', 'resume_register_menus');
+
+//Adding SVG images
+function allow_svg_upload($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'allow_svg_upload');
 ?>
 

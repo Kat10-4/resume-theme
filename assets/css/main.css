@@ -116,7 +116,7 @@ h2, h3 {
   text-align: center;
   margin-bottom: 30px;
 }
-.skills ul {
+.skills-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -124,11 +124,14 @@ h2, h3 {
   list-style: none;
   padding-left: 0;
 }
-.skills li {
+.skill-item {
   background-color: #f0f0f0;
   padding: 10px 20px;
   border-radius: 30px;
   font-weight: 500;
+}
+.skill-icon{
+  height: 30px;
 }
 
 /* PORTFOLIO Section */

@@ -5,5 +5,7 @@
     $cv = get_field('cv_file'); 
     if ($cv): ?>
      <a href="<?php echo esc_url($cv); ?>" class="btn-download-cv" download>Download CV</a>
-    <?php endif; ?>
+    <?php else:
+      echo '<li>No CV found.</li>';
+    endif ?>
 </section>
