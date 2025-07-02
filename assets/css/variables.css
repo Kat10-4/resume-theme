@@ -1,0 +1,35 @@
+:root {
+  /* COLORS */
+  --bg-color: #0f0f0f;
+  --text-color: #e5eaed;
+  --heading-color: #ffffff;
+  --card-bg: #1a1a1a;
+  --border-color: #2e2e2e;
+  --primary-color: #3a7bd5;
+  --primary-hover: #5d9cff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --gradient-color: linear-gradient(90deg, #3a7bd5, #00d2ff);
+  --gradient-bg-hero: radial-gradient(ellipse at top, #000428, transparent),
+    radial-gradient(ellipse at bottom, #004e92, transparent);
+  --placeholder-color: #555;
+
+  /* FONT */
+  --font-family: "Space Grotesk", sans-serif;
+  --font-size-base: 1.1rem;
+  --font-size-h1: clamp(2.5rem, 8vw, 4rem);
+  --font-size-h2: clamp(1.8rem, 5vw, 2.5rem);
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* EFFECTS */
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ====== RESET ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

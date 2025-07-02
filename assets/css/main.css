@@ -1,26 +1,11 @@
 /* ====== BASE STYLES ====== */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-
-:root {
-  --bg-color: #0f0f0f;
-  --text-color: #e5eaed;
-  --heading-color: #ffffff;
-  --card-bg: #1a1a1a;
-  --border-color: #2e2e2e;
-  --primary-color: #3a7bd5;
-  --primary-hover: #5d9cff;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import url('./variables.css');
 
 body {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
   line-height: 1.6;
   background: var(--bg-color);
   color: var(--text-color);
@@ -46,14 +31,14 @@ body {
 }
 
 .main-nav .menu li a {
-  color: white;
+  color: var(--heading-color);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   padding: 0.5rem 1rem;
   transition: var(--transition);
   display: inline-block;
   padding-bottom: 5px;
-  background-image: linear-gradient(90deg, #3a7bd5, #00d2ff);
+  background-image: var(--gradient-color);
   background-size: 0% 3px;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -78,9 +63,10 @@ section {
 
 /* ====== TYPOGRAPHY ====== */
 h1 {
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
   line-height: 1.1;
-  background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+  background: var(--gradient-color);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -88,13 +74,14 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-size: var(--font-size-h2);
   color: var(--heading-color);
+  font-weight: var(--font-weight-bold);
   margin-bottom: 1.5rem;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: var(--font-size-base);
   max-width: 800px;
   margin: 0 auto 1.5rem;
 }
@@ -103,8 +90,7 @@ p {
 .hero {
   text-align: center;
   padding: 120px 20px;
-  background: radial-gradient(ellipse at top, #000428, transparent),
-    radial-gradient(ellipse at bottom, #004e92, transparent);
+  background: var(--gradient-bg-hero);
   background-blend-mode: multiply;
   position: relative;
   overflow: hidden;
@@ -136,14 +122,14 @@ p {
   object-position: 50% 20%;
   border-radius: 50%;
   border: 3px solid transparent;
-  box-shadow: 0 0 0 2px var(--border-color), 0 0 20px rgba(58, 123, 213, 0.5); /* Glow effect */
+  box-shadow: 0 0 0 2px var(--border-color), 0 0 20px rgba(58, 123, 213, 0.5);
   transition: var(--transition);
   flex-shrink: 0;
 }
 
 .my-img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 0 2px var(--primary-color), 0 0 30px rgba(58, 123, 213, 0.8); /* Stronger glow on hover */
+  box-shadow: 0 0 0 2px var(--primary-color), 0 0 30px rgba(58, 123, 213, 0.8);
 }
 
 .profile-img-wrapper {
@@ -158,15 +144,9 @@ p {
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .profile-img-wrapper img {
@@ -190,16 +170,12 @@ p {
 .skill-item {
   display: flex;
   align-items: center;
-  background: linear-gradient(
-    90deg,
-    rgba(58, 123, 213, 0.1) 0%,
-    rgba(58, 123, 213, 0.2) 100%
-  );
+  background: linear-gradient(90deg, rgba(58, 123, 213, 0.1), rgba(58, 123, 213, 0.2));
   backdrop-filter: blur(5px);
   color: var(--primary-color);
   padding: 8px 16px;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   border: 1px solid rgba(58, 123, 213, 0.3);
 }
 
@@ -222,7 +198,7 @@ p {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .project-item img {
@@ -234,7 +210,7 @@ p {
 }
 
 .project-item:hover {
-  border-color: #3a7bd5;
+  border-color: var(--primary-color);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(58, 123, 213, 0.2);
 }
@@ -245,12 +221,11 @@ p {
   backdrop-filter: blur(5px);
   background: rgba(26, 26, 26, 0.7);
   width: 100%;
-  padding: 12px;
+  padding: 12px 15px;
   margin-bottom: 1rem;
-  border: 1px solid #3a7bd5;
+  border: 1px solid var(--primary-color);
   color: #00d2ff;
   font-family: monospace;
-  padding: 12px 15px;
 }
 
 .wpcf7 input[type="submit"] {
@@ -270,7 +245,7 @@ p {
 }
 
 .wpcf7 input::placeholder {
-  color: #555;
+  color: var(--placeholder-color);
 }
 
 /* ====== FOOTER ====== */
@@ -311,12 +286,12 @@ footer {
   background: var(--primary-color);
   color: white;
   text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
+  font-weight: var(--font-weight-bold);
   margin-top: 1rem;
   position: relative;
   overflow: hidden;
 }
+
 .btn-download-cv:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
@@ -324,7 +299,7 @@ footer {
   letter-spacing: 1px;
 }
 
-/* ====== RESPONSIVE ADJUSTMENTS ====== */
+/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .about-wrapper {
     flex-direction: column;
