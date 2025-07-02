@@ -51,10 +51,18 @@ body {
   font-weight: 500;
   padding: 0.5rem 1rem;
   transition: var(--transition);
+  display: inline-block;
+  padding-bottom: 5px;
+  background-image: linear-gradient(90deg, #3a7bd5, #00d2ff);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.5s ease;
 }
 
 .main-nav .menu li a:hover {
   color: var(--primary-color);
+  background-size: 100% 3px;
 }
 
 /* ====== LAYOUT ====== */
@@ -65,7 +73,7 @@ main {
 }
 
 section {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 /* ====== TYPOGRAPHY ====== */
@@ -101,6 +109,7 @@ p {
   position: relative;
   overflow: hidden;
 }
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -119,6 +128,7 @@ p {
   margin: 3rem auto;
   max-width: 900px;
 }
+
 .my-img {
   width: 200px;
   height: 200px;
@@ -130,10 +140,12 @@ p {
   transition: var(--transition);
   flex-shrink: 0;
 }
+
 .my-img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 0 2px var(--primary-color), 0 0 30px rgba(58, 123, 213, 0.8); /* Stronger glow on hover */
 }
+
 .profile-img-wrapper {
   position: relative;
   width: 220px;
@@ -144,6 +156,7 @@ p {
   background-size: 200% 200%;
   animation: gradientShift 4s ease infinite;
 }
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -155,6 +168,7 @@ p {
     background-position: 0% 50%;
   }
 }
+
 .profile-img-wrapper img {
   width: 100%;
   height: 100%;
@@ -208,7 +222,7 @@ p {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .project-item img {
@@ -220,20 +234,23 @@ p {
 }
 
 .project-item:hover {
+  border-color: #3a7bd5;
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(58, 123, 213, 0.2);
 }
 
 /* ====== CONTACT FORM ====== */
 .wpcf7 input,
 .wpcf7 textarea {
+  backdrop-filter: blur(5px);
+  background: rgba(26, 26, 26, 0.7);
   width: 100%;
   padding: 12px;
   margin-bottom: 1rem;
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-  border-radius: 8px;
+  border: 1px solid #3a7bd5;
+  color: #00d2ff;
+  font-family: monospace;
+  padding: 12px 15px;
 }
 
 .wpcf7 input[type="submit"] {
@@ -247,6 +264,13 @@ p {
 
 .wpcf7 input[type="submit"]:hover {
   background: var(--primary-hover);
+  transform: translateY(-2px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wpcf7 input::placeholder {
+  color: #555;
 }
 
 /* ====== FOOTER ====== */
@@ -278,39 +302,26 @@ footer {
 
 /* ====== BUTTONS ====== */
 .btn-download-cv {
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  width: auto;
   display: inline-block;
   padding: 12px 24px;
   background: var(--primary-color);
   color: white;
   text-decoration: none;
-  border-radius: 8px;
   font-weight: 600;
   transition: var(--transition);
   margin-top: 1rem;
   position: relative;
   overflow: hidden;
 }
-.btn-download-cv::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  transform: translateY(100%);
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.btn-download-cv:hover::after {
-  transform: translateY(-50%) rotate(15deg);
-}
 .btn-download-cv:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ====== RESPONSIVE ADJUSTMENTS ====== */
