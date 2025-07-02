@@ -3,7 +3,9 @@
   <div class='about-wrapper'>
     <?php $my_photo = get_field('my_photo'); ?>
     <?php if ($my_photo): ?>
-      <img src="<?= esc_url($my_photo['url']); ?>" alt="<?= esc_attr($my_photo['alt']); ?>" class="my-img" />
+      <div class='profile-img-wrapper'>
+        <img src="<?= esc_url($my_photo['url']); ?>" alt="<?= esc_attr($my_photo['alt']); ?>" class="my-img" />
+      </div>
     <?php endif; ?>
     <div>
       <p><?php the_field('about_text'); ?></p>
